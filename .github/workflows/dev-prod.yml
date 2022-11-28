@@ -1,0 +1,24 @@
+name: Environments
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  job1:
+    name: dev
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Run
+      uses: ./.github/workflows/experiment.yml
+
+  job2:
+    name: prod
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Run
+      needs: [job1]
+      uses: ./.github/workflows/production.yml
