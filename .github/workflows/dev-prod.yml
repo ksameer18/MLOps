@@ -8,6 +8,8 @@ jobs:
     name: dev
     runs-on: ubuntu-latest
     steps:
+    - name: Check out repo
+      uses: actions/checkout@main
     - name: Run
       uses: ./.github/workflows/experiment.yml
 
