@@ -17,6 +17,12 @@ jobs:
       run : pip install -U pytest
     - name: Install Pandas
       run : pip install pandas
+    - name: Install Sklearn
+      run: pip install sklearn
+    - name: Install scikit-learn
+      run: pip install -U scikit-learn
+    - name: Install Mlflow
+      run: pip install mlflow
     - name: Use Python version 3.8
       uses: actions/setup-python@v3
       with:
