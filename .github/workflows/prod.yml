@@ -1,7 +1,10 @@
 name: Production model
 
 on:
-  workflow_dispatch:
+  workflow_run:
+    workflows: [dev]
+    types:
+      - completed
   
 jobs:
   build:
