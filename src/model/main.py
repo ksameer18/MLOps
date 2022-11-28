@@ -34,7 +34,7 @@ def get_csvs_df(path):
 
 # TO DO: add function to split data
 def split_data(df):
- 
+
     X = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure',
             'TricepsThickness', 'SerumInsulin', 'BMI',
             'DiabetesPedigree', 'Age']].values
@@ -66,19 +66,15 @@ def parse_args():
     # return args
     return args
 
-# run script
-if __name__ == "__main__":
 
+if __name__ == "__main__":
 
     print("\n\n")
     print("*" * 60)
 
-    # parse args
     args = parse_args()
 
-    # run main function
     main(args)
 
-    # add space in logs
     print("*" * 60)
     print("\n\n")
