@@ -11,6 +11,6 @@ jobs:
     - name: Check out repo
       uses: actions/checkout@main
     - name: Run
-      uses: MLOps/.github/workflows/dev.yml@main
+      uses: ./.github/workflows/dev.yml@main
 
   
