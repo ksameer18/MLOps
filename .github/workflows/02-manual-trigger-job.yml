@@ -25,18 +25,12 @@ jobs:
   train:
     runs-on: ubuntu-latest
     steps:
+    - name: Check out repo
+      uses: actions/checkout@main
     - name: Install az ml extension
       run: az extension add -n ml -y
-    - name: Install Pytest
-      run : pip install -U pytest
-    - name: Install Pandas
-      run : pip install pandas
-    - name: Install Sklearn
-      run: pip install sklearn
-    - name: Install scikit-learn
-      run: pip install -U scikit-learn
-    - name: Install Mlflow
-      run: pip install mlflow
+    - name: Install requirements.txt
+      run : pip install -r requirements.txt
     - name: Unit testing
       run: pytest tests/
     - name: Azure login
@@ -45,5 +39,3 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Run ML Job
       run: az ml job create --file src/job.yml --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer
-      
-
