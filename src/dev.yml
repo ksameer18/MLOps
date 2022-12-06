@@ -1,15 +1,16 @@
-name: Train model
-
-on: 
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    environment:
-        name: dev 
-    steps:
-    - name: run pipeline
-      run: az ml job create --file src/job.yml --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer
-    - name: run
-      run: az ml job create --file src/prod.yml --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: src
+command: >-
+  az ml job create --file src/job.yml --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer
+  az ml job create --file src/prod.yml --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer
+  --training_data ${{inputs.training_data}}
+inputs:
+  training_data: 
+    type: uri_folder 
+    path: azureml://subscriptions/cbb956ec-6c04-42ae-8428-91d91154f780/resourcegroups/az-ml-lab-sameer/workspaces/az-ml-ws-sameer/datastores/workspaceblobstore/paths/UI/2022-11-25_095913_UTC/
+  reg_rate: 0.01
+  mode: ro_mount
+environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
+compute: azureml:ml-cluster
+experiment_name: diabetes-data-example
+description: Train a classification model on diabetes data using a registered dataset as input.
