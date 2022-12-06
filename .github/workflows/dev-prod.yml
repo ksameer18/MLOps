@@ -11,6 +11,6 @@ jobs:
     - name: Check out repo
       uses: actions/checkout@main
     - name: Run
-      uses: ./.github/workflows/dev.yml@main
+      run: az ml job create --file src/dev.yml --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer
 
   
