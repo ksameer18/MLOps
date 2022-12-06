@@ -8,6 +8,8 @@ jobs:
     name: dev
     runs-on: ubuntu-latest
     steps:
+    - name: install az ml extension
+      run: az extension add -n ml -y
     - name: Check out repo
       uses: actions/checkout@main
     - name: Run
