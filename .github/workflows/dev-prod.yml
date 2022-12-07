@@ -18,7 +18,7 @@ jobs:
       - name: Set Directory
         run: pwd
       - name: Run dev env job
-        run: az ml job create --file dev.yml --resource-group az-ml-lab-sameer
+        run: az ml job create --file ./workflows/dev.yml --resource-group az-ml-lab-sameer
           --workspace-name az-ml-ws-sameer --stream
 
   
