@@ -22,7 +22,7 @@ jobs:
         run: az ml job create --file src/job.yml --resource-group az-ml-lab-sameer
           --workspace-name az-ml-ws-sameer --stream
       - name: set current directory
-        run: cd /.github/workflows
+        run: cd .github/workflows
       - name: run
         run: az ml job create --file workflows/prod.yml --resource-group az-ml-lab-sameer
           --workspace-name az-ml-ws-sameer --stream
