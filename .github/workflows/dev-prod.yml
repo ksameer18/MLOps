@@ -1,7 +1,9 @@
 ---
 name: Environments
 on:
-  workflow_dispatch: null
+  push:
+    branches:
+      - main
 jobs:
   dev:
     name: dev
