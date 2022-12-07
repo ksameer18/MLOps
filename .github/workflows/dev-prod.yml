@@ -39,6 +39,6 @@ jobs:
           creds: ${{secrets.AZURE_CREDENTIALS}}
       - name: set current directory
         run: cd src
-      - name: Run dev env job
+      - name: Run prod env job
         run: az ml job create --file src/prod.yml --resource-group az-ml-lab-sameer
           --workspace-name az-ml-ws-sameer --stream
