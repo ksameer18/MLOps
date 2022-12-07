@@ -24,6 +24,7 @@ jobs:
           --workspace-name az-ml-ws-sameer --stream
   prod:
     name: prod
+    if: success()
     runs-on: ubuntu-latest
     environment:
       name: prod
