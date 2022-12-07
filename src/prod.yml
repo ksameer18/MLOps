@@ -1,12 +1,6 @@
 ---
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 name: Production model
-on:
-  workflow_run:
-    workflows:
-      - dev
-    types:
-      - completed
 code: model
 command: python main.py   --training_data ${{inputs.training_data}}
 inputs:
