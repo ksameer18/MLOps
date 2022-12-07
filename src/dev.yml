@@ -1,9 +1,0 @@
-$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-code: src
-command: >-
-  az ml job create --file src/job.yml --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer
-  az ml job create --file src/prod.yml --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer
-environment: dev
-compute: azureml:ml-cluster
-experiment_name: diabetes-data-example
-description: Train a classification model on diabetes data using a registered dataset as input.
