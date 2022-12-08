@@ -18,7 +18,7 @@ jobs:
       - name: set current directory
         run: cd src
       - name: Create endpoint
-        run: az ml online-endpoint create --name diabetes-mlflow-sameer-ep1 --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer -f src/create-endpoint.yaml
+        run: az ml online-endpoint create --name diabetes-mlflow-sameer-ep1 --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer -f src/create-endpoint.yml
   deploy:
     name: deploy model
     needs: create
@@ -35,5 +35,5 @@ jobs:
       - name: set current directory
         run: cd src
       - name: deploy model
-        run: az ml online-deployment create --name mlflow-deployment3 --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer --endpoint diabetes-mlflow-sameer-ep1 -f src/mlflow-deployment.yaml --all-traffic 
+        run: az ml online-deployment create --name mlflow-deployment3 --resource-group az-ml-lab-sameer --workspace-name az-ml-ws-sameer --endpoint diabetes-mlflow-sameer-ep1 -f src/mlflow-deployment.yml --all-traffic 
 
